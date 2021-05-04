@@ -44,3 +44,16 @@
 #lowerGlass>p{
   height: 20%;
 }
+form#timeInput input,label{
+  height: auto;
+  width: 10%;
+  max-width: 70px;
+  font-size: 1.2em;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
