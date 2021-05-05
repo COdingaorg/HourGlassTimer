@@ -52,12 +52,6 @@
   justify-content: center;
 }
 
-#upperGlass>p{
-  /* height: 80%; */
-}
-#lowerGlass>p{
-  /* height: 20%; */
-}
 form#timeInput input,label{
   height: auto;
   width: 10%;
