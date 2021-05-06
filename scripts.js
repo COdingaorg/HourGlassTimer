@@ -5,7 +5,8 @@ $(document).ready(function () {
   
   $('button#submit').click(function (event) {
     event.preventDefault();
-    
+    //Adding rotation to pointer element
+    $('#pointer').css('animation', 'rotate 2s linear 1s infinite');
     //device time--also the start time in miliseconds
     const deviceTime = new Date().getTime();
 
@@ -18,7 +19,7 @@ $(document).ready(function () {
     var timerHours = parseInt(hourInput);
     var timerMinutes = parseInt(minuteInput);
     var timerSeconds = parseInt(secondInput);
-    
+
     //making input revert to zero if nothing is added
     if (hourInput == ''||hourInput == null || hourInput == NaN){
       timerHours= 0;
@@ -95,8 +96,10 @@ $(document).ready(function () {
       //clearing and sopping count down once 0 is reached
       if(remainingTime<=0){
         clearInterval(x);
+
         $('#display p').first().remove()
         $('#display').append('<h2>Time Is Up!</h2>');
+        $('#pointer').css('animation', 'none');
       }
     },1000)
   })

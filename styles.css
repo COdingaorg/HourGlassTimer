@@ -80,9 +80,9 @@ form#timeInput input,label{
   align-items:flex-start;
   justify-content: center;
   text-align: center;
-  animation: rotate 2s linear 1s infinite;
   margin-bottom: -340px;
   border: 0px;
+  transform: rotate(90deg);
 }
 #pointer p{
   width: 20px;
