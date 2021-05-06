@@ -23,16 +23,20 @@ $(document).ready(function () {
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  //show time remaining
+  var countTime = `<p id="countTimer">Days: ${days} Hours: ${hours} Minutes: ${minutes} Seconds: ${seconds} </p>`;
   
 
-  console.log(days, hours, minutes, seconds);
-    console.log();
-  // var userDate = new Date()
-  // var userTime = $('input#hours').val();
-  // var time = 87;
-  // var percAdd = time+'%';
-  // var percSub = (100-time)+'%';
-  //   $('#upperGlass div').css('height',percAdd);
-  //   $('#lowerGlass div').css('height',percSub);
+ 
+    //getting timer s to control height of our hour glass content
+    var timerS = Math.floor(distance/1000);
+
+    console.log(timerS);
+    console.log(distance);
+  var percAdd = timerS+'%';
+  var percSub = (100-timerS)+'%';
+    $('#upperGlass div').css('height',percAdd);
+    $('#lowerGlass div').css('height',percSub);
 })
 })
