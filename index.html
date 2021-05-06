@@ -12,22 +12,26 @@
 <body>
   <div class="container">
     <h2>Hour Glass Timer</h2>
-    <div id="holder">
-      <div id="upperGlass">
-        <div>
-          <p></p>
-        </div>
-      </div>
-      <div id="lowerGlass">
-        <div>
-        <p></p>
-        </div>
-      </div>
-
+    <div id="pointer">
+      <p>o</p>
     </div>
+      <div id="holder">
+        <div id="upperGlass">
+          <div>
+            <p></p>
+          </div>
+        </div>
+        <div id="lowerGlass">
+          <div>
+            <p></p>
+          </div>
+        </div>
+
+      </div>
+    
     <h2 id="title">Enter Time</h2>
     <form id="timeInput">
-      
+
       <label for="hours">Hours :
         <input type="text" id="hours" name="hours">
       </label>
@@ -39,9 +43,12 @@
       </label><br>
       <button type="reset" id="reset">Reset &circlearrowleft;</button>
     </form>
-      <button type="submit" id="submit">&triangleright;</button>
-    
-    <div id="display"><h3>Time Remaining: </h3></p></div>
+    <button type="submit" id="submit">&triangleright;</button>
+
+    <div id="display">
+      <h3>Time Remaining: </h3>
+      </p>
+    </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>

@@ -39,7 +39,10 @@ $(document).ready(function () {
       var countTime = `<h3 id="countTimer">${days} -Days, || ${hours}-Hours, || ${minutes}- Minutes, || ${seconds}-Seconds</h3>`;
 
       //getting timer s to control height of our hour glass content
-      var timerS = 100;
+      var timerS = (remainingTime/userTime)*100;
+
+
+      //displaying results on homepage
       $('#display').append(countTime);
       $('#display h3').first().remove()
       $('form label, #title, #submit').hide();
@@ -49,9 +52,12 @@ $(document).ready(function () {
       $('#upperGlass div').css('height', percAdd);
       $('#lowerGlass div').css('height', percSub);
 
+      //reload page with reset button
       $('#reset').click(function(){
         location.reload(true)
       })
+
+      //clearing and sopping count down once 0 is reached
       if(remainingTime<=0){
         clearInterval(x);
         $('#display p').first().remove()
