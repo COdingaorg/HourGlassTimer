@@ -1,22 +1,28 @@
 //set time we are counting to
+var x = setInterval(function(){
 $(document).ready(function () {
   $('button#submit').click(function (event) {
     event.preventDefault();
-      //setting user time to count down from
-      //getting input from form
+
+    //device time--also the start time in miliseconds
+    var deviceTime = new Date().getTime();
+
+      //setting user time-- also the duration
+          //getting input from form
     var timerHours = parseInt($('input#hours').val());
     var timerMinutes = parseInt($('input#minutes').val());
     var timerSeconds = parseInt($('input#seconds').val());
 
-    //device time
-    var deviceTime = new Date().getTime();
     var userSet = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), timerHours, timerMinutes, timerSeconds);
 
-    //user Time
+    //user Time--converted set time to miliseconds--duration in milliseconds
     var userTime = (userSet.getTime())
    
+    // getting the target time -- also the end
+    const finalTime = deviceTime + userTime;
+
     //getting the difference
-    var distance = userTime-deviceTime;
+    var distance = finalTime - deviceTime;
 
    // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -32,11 +38,11 @@ $(document).ready(function () {
     //getting timer s to control height of our hour glass content
     var timerS = Math.floor(distance/1000);
 
-    console.log(timerS);
-    console.log(distance);
+    $('#display').append(countTime);
   var percAdd = timerS+'%';
   var percSub = (100-timerS)+'%';
     $('#upperGlass div').css('height',percAdd);
     $('#lowerGlass div').css('height',percSub);
 })
 })
+},1000)
