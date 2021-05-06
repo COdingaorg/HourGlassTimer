@@ -12,42 +12,45 @@
 <body>
   <div class="container">
     <h2>Hour Glass Timer</h2>
+    <h4 id="showTIme"></h4><hr>
+    
     <div id="pointer">
       <p>o</p>
     </div>
-      <div id="holder">
-        <div id="upperGlass">
-          <div>
-            <p></p>
-          </div>
+    <div id="holder">
+      <div id="upperGlass">
+        <div>
+          <p></p>
         </div>
-        <div id="lowerGlass">
-          <div>
-            <p></p>
-          </div>
-        </div>
-
       </div>
-    
-    <h2 id="title">Enter Time</h2>
-    <form id="timeInput">
+      <div id="lowerGlass">
+        <div>
+          <p></p>
+        </div>
+      </div>
 
-      <label for="hours">Hours :
-        <input type="text" id="hours" name="hours">
-      </label>
-      <label for="minutes">Minutes :
-        <input type="text" id="minutes" name="minutes" aria-activedescendant="cursor">
-      </label>
-      <label for="seconds">Seconds:
-        <input type="text" id="seconds" name="seconds" placeholder="00">
-      </label><br>
-      <button type="reset" id="reset">Reset &circlearrowleft;</button>
-    </form>
-    <button type="submit" id="submit">&triangleright;</button>
+    </div><hr>
+    <div id="panel">
+      <h2 id="title">Enter Time</h2>
+      <form id="timeInput">
 
-    <div id="display">
-      <h3>Time Remaining: </h3>
-      </p>
+        <label for="hours">Hours :
+          <input type="text" id="hours" name="hours">
+        </label>
+        <label for="minutes">Minutes :
+          <input type="text" id="minutes" name="minutes" aria-activedescendant="cursor">
+        </label>
+        <label for="seconds">Seconds:
+          <input type="text" id="seconds" name="seconds" placeholder="00">
+        </label><br>
+        <button type="reset" id="reset">Reset &circlearrowleft;</button>
+      </form>
+      <button type="submit" id="submit">&triangleright;</button>
+
+      <div id="display">
+        <h3>Time Remaining: </h3>
+        </p>
+      </div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="

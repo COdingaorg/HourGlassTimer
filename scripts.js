@@ -1,7 +1,11 @@
 $(document).ready(function () {
+  //show time on page
+  var dateShow = new Date();
+  $('#showTIme').append(dateShow);
+  
   $('button#submit').click(function (event) {
     event.preventDefault();
-
+    
     //device time--also the start time in miliseconds
     const deviceTime = new Date().getTime();
 
@@ -47,11 +51,28 @@ $(document).ready(function () {
       $('#display h3').first().remove()
       $('form label, #title, #submit').hide();
       $('#reset').show();
+
       var percAdd = timerS + '%';
       var percSub = (100 - timerS) + '%';
+      
+      var percNum = parseInt(timerS);
+      //resizing hour glass content 
+      if (percNum <= 50){
+        $('#upperGlass div').css('width', '96%')
+      }else if (percNum <= 39){
+        $('#upperGlass div').css('width', '80%')
+      }
+      else if (percNum <= 20){
+        $('#upperGlass div').css('width', '75%')
+      }else if (percNum <= 8){
+        $('#upperGlass div').css('width', '70%')
+      }      ;
+
       $('#upperGlass div').css('height', percAdd);
       $('#lowerGlass div').css('height', percSub);
+      console.log((percAdd));
 
+      
       //reload page with reset button
       $('#reset').click(function(){
         location.reload(true)

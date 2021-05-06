@@ -10,6 +10,8 @@
   border-radius:35% 35% 2% 2%;
   margin-bottom: 0;
   transform: rotate(180deg);
+  display: flex;
+  justify-content: center;
 }
 #upperGlass>div{
   width: 100%;
@@ -30,6 +32,8 @@
   margin-top: 0;
   padding: 0;
   transform: rotate(180deg);
+  display: flex;
+  justify-content: center;
 }
 #lowerGlass>div{
   width: 100%;
@@ -77,8 +81,8 @@ form#timeInput input,label{
   justify-content: center;
   text-align: center;
   animation: rotate 2s linear 1s infinite;
-  position: absolute;
-  margin-top: -75px;
+  margin-bottom: -340px;
+  border: 0px;
 }
 #pointer p{
   width: 20px;
