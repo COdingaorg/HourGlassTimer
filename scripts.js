@@ -1,19 +1,24 @@
 //set time we are counting to
 $(document).ready(function () {
-  var deviceDate = new Date().toLocaleDateString();
-  var deviceTime = new Date().toLocaleTimeString();
-  var dateArray = deviceDate.split('/').reverse().join(' ');
-
-  $('input#timeInput').submit(function (event) {
+  $('button#submit').click(function (event) {
     event.preventDefault();
-    console.log('Before')
-    var timerHours = $('#hours').val();
+
+    var timerHours = $('input#hours').val();
     var timerMinutes = $('input#minutes').val();
     var timerSeconds = $('input#seconds').val();
-    var timerSet = timerHours + ' ' + timerMinutes + ' ' + timerSeconds;
-    var userSet = new Date(dateArray);
-    console.log('timerHours');
+    var userSet = `${timerHours}:${timerMinutes}:${timerSeconds}`
+    var userDate = `${new Date().getFullYear()} ${new Date().getMonth()} ${new Date().getDate()}`;
+    var deviceTIme = new Date().getTime();
+    var userTime = 
 
+    console.log(userDate);
+
+
+     // Time calculations for days, hours, minutes and seconds
+  // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
   })
   // var userDate = new Date()
   // var userTime = $('input#hours').val();
