@@ -11,11 +11,25 @@ $(document).ready(function () {
 
     //setting user time-- also the duration
     //getting input from form
-    var timerHours = parseInt($('input#hours').val());
-    var timerMinutes = parseInt($('input#minutes').val());
-    var timerSeconds = parseInt($('input#seconds').val());
+    var hourInput = $('input#hours').val();
+    var minuteInput = $('input#minutes').val();
+    var secondInput = $('input#seconds').val();
 
-
+    var timerHours = parseInt(hourInput);
+    var timerMinutes = parseInt(minuteInput);
+    var timerSeconds = parseInt(secondInput);
+    
+    //making input revert to zero if nothing is added
+    if (hourInput == ''||hourInput == null || hourInput == NaN){
+      timerHours= 0;
+    };
+    if (minuteInput == ''||minuteInput == null || minuteInput == NaN){
+      timerMinutes = 0;
+    };
+    if (secondInput == ''||secondInput == null || secondInput == NaN){
+      timerSeconds = 0;
+    };
+    console.log(timerHours)
     //user Time--converted set time to miliseconds--duration in milliseconds
      //user Time--converted set time to miliseconds--duration in milliseconds
      const userTime = (Math.floor(timerHours*3600000))+(Math.floor(timerMinutes*60000))+(Math.floor(timerSeconds*1000));
