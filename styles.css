@@ -65,3 +65,6 @@ form#timeInput input,label{
   justify-content: center;
   text-align: center;
 }
+#reset{
+  display: none;
+}

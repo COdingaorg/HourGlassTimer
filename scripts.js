@@ -15,7 +15,7 @@ $(document).ready(function () {
     //user Time--converted set time to miliseconds--duration in milliseconds
      //user Time--converted set time to miliseconds--duration in milliseconds
      const userTime = (Math.floor(timerHours*3600000))+(Math.floor(timerMinutes*60000))+(Math.floor(timerSeconds*1000));
-     
+
     // getting the target time -- also the end
     const finalTime = deviceTime + userTime;
 
@@ -35,21 +35,28 @@ $(document).ready(function () {
       var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-
-      console.log(days);
       //show time remaining
-      // var countTime = `<p id="countTimer">Days: ${days} Hours: ${hours} Minutes: ${minutes} Seconds: ${seconds} </p>`;
-
-
+      var countTime = `<h3 id="countTimer">${days} -Days, || ${hours}-Hours, || ${minutes}- Minutes, || ${seconds}-Seconds</h3>`;
 
       //getting timer s to control height of our hour glass content
-      // var timerS = Math.floor(remainingTime / 1000);
+      var timerS = 100;
+      $('#display').append(countTime);
+      $('#display h3').first().remove()
+      $('form label, #title, #submit').hide();
+      $('#reset').show();
+      var percAdd = timerS + '%';
+      var percSub = (100 - timerS) + '%';
+      $('#upperGlass div').css('height', percAdd);
+      $('#lowerGlass div').css('height', percSub);
 
-      // $('#display').append(countTime);
-      // var percAdd = timerS + '%';
-      // var percSub = (100 - timerS) + '%';
-      // $('#upperGlass div').css('height', percAdd);
-      // $('#lowerGlass div').css('height', percSub);
+      $('#reset').click(function(){
+        location.reload(true)
+      })
+      if(remainingTime<=0){
+        clearInterval(x);
+        $('#display p').first().remove()
+        $('#display').append('<h2>Time Is Up!</h2>');
+      }
     },1000)
   })
 })
