@@ -12,6 +12,22 @@
   --lightblue:#BCDCFD;
   --black:black;
 }
+@font-face {
+  font-family: Nexa;
+  src: url(Nexa/Nexa-Light.otf);
+  font-weight: light;
+}
+@font-face {
+  font-family: Nexa;
+  src: url(Nexa/Nexa-Bold.otf);
+  font-weight: bold;
+}
+*{
+  font-family: Nexa;
+}
+h2, h3, h4, h5, h6, p{
+  font-size: 1.2em;
+}
 #upperGlass{
   width: 80px;
   height: 120px;
