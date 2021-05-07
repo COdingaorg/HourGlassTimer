@@ -25,6 +25,8 @@
   display: flex;
   justify-content: center;
   z-index: 1;
+  box-shadow: inset 3px -2px 7px var(--grey);
+  box-shadow: -3px 2px 4px var(--grey);
 }
 #upperGlass>div{
   width: 100%;
@@ -50,6 +52,8 @@
   display: flex;
   justify-content: center;
   z-index: 0;
+  box-shadow: inset 3px -2px 7px var(--grey);
+  box-shadow: -3px 2px 4px var(--grey);
 }
 #lowerGlass>div{
   width: 100%;
@@ -71,9 +75,11 @@
   justify-content: center;
   border-radius: 50%;
   background-image: linear-gradient(white, white), 
-                    linear-gradient(to bottom, var(--orange), var(--red));
+                    linear-gradient(to bottom, var(--orange), var(--red)),
+                    linear-gradient(white, white);
   background-origin: border-box;
-  background-clip: content-box, border-box;
+  background-clip: content-box, border-box, border-box;
+  box-shadow: inset 3px -2px 7px var(--grey);
 }
 form#timeInput input,label{
   height: auto;
@@ -106,6 +112,7 @@ form#timeInput input,label{
   height: 20px;
   background-color: red;
   clip-path: polygon(0 0, 100% 50%, 0 100%);
+  color: var(--white);
 }
 #combo{
   width: 340px;
@@ -125,6 +132,9 @@ button{
   box-shadow: 2px 2px 5px var(--grey);
   border: 2px solid var(--white);
   margin: 2%;
+}
+button#submit{
+  width: 50px;
 }
 @keyframes rotate {
   from{
