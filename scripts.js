@@ -2,11 +2,12 @@ $(document).ready(function () {
   //show time on page
   var dateShow = new Date();
   $('#showTIme').append(dateShow);
-  $('#linkDir').click(function(){
+  $('#linkDir').click(function () {
     $('#linkDir').hide();
   })
   $('button#submit').click(function (event) {
     event.preventDefault();
+
     //Adding rotation to pointer element
     $('#pointer').css('animation', 'rotate 60s linear 0s infinite');
     $('#pointer').css('animation-fill-mode', 'forwards');
@@ -24,18 +25,18 @@ $(document).ready(function () {
     var timerSeconds = parseInt(secondInput);
 
     //making input revert to zero if nothing is added
-    if (hourInput == ''||hourInput == null || hourInput == NaN){
-      timerHours= 0;
+    if (hourInput == '' || hourInput == null || hourInput == NaN) {
+      timerHours = 0;
     };
-    if (minuteInput == ''||minuteInput == null || minuteInput == NaN){
+    if (minuteInput == '' || minuteInput == null || minuteInput == NaN) {
       timerMinutes = 0;
     };
-    if (secondInput == ''||secondInput == null || secondInput == NaN){
+    if (secondInput == '' || secondInput == null || secondInput == NaN) {
       timerSeconds = 0;
     };
     //user Time--converted set time to miliseconds--duration in milliseconds
-     //user Time--converted set time to miliseconds--duration in milliseconds
-     const userTime = (Math.floor(timerHours*3600000))+(Math.floor(timerMinutes*60000))+(Math.floor(timerSeconds*1000));
+    //user Time--converted set time to miliseconds--duration in milliseconds
+    const userTime = (Math.floor(timerHours * 3600000)) + (Math.floor(timerMinutes * 60000)) + (Math.floor(timerSeconds * 1000));
 
     // getting the target time -- also the end
     const finalTime = deviceTime + userTime;
@@ -47,10 +48,10 @@ $(document).ready(function () {
     var x = setInterval(function () {
       var currentTime = new Date().getTime();
       var lapseTime = currentTime - deviceTime;
-      
+
       //now time remaining will be duration minus lapse time
       var remainingTime = userTime - lapseTime;
-      
+
       // Time calculations for days, hours, minutes and seconds
       var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
       var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -60,7 +61,7 @@ $(document).ready(function () {
       var countTime = `<h3 id="countTimer">${days} -Days, || ${hours}-Hours, || ${minutes}- Minutes, || ${seconds}-Seconds</h3>`;
 
       //getting timer s to control height of our hour glass content
-      var timerS = (remainingTime/userTime)*100;
+      var timerS = (remainingTime / userTime) * 100;
 
 
       //displaying results on homepage
@@ -71,37 +72,54 @@ $(document).ready(function () {
 
       var percAdd = timerS + '%';
       var percSub = (100 - timerS) + '%';
-      
+
       var percNum = parseInt(timerS);
       //resizing hour glass content 
-      if (percNum <= 13){
+      if (percNum <= 13) {
         $('#upperGlass div').css('width', '60%')
-      }else if (percNum <= 20){
+      } else if (percNum <= 20) {
         $('#upperGlass div').css('width', '78%')
-      }else if(percNum <= 34){
+      } else if (percNum <= 34) {
         $('#upperGlass div').css('width', '80%')
-      }else if (percNum <= 39){
+      } else if (percNum <= 39) {
         $('#upperGlass div').css('width', '84%')
-      } else if (percNum <= 60){
+      } else if (percNum <= 60) {
         $('#upperGlass div').css('width', '94%')
       };
       console.log(percNum);
       $('#upperGlass div').css('height', percAdd);
       $('#lowerGlass div').css('height', percSub);
-      
+
       //reload page with reset button
-      $('#reset').click(function(){
+      $('#reset').click(function () {
+        var obj = document.createElement("audio");
+        obj.src = "resetEffect.wav";
+        obj.play();
         location.reload(true)
       })
 
       //clearing and sopping count down once 0 is reached
-      if(remainingTime<=0){
+      if (remainingTime <= 0) {
         clearInterval(x);
 
         $('#display p').first().remove()
         $('#display').append('<h2 id="message">Time Is Up!</h2>');
         $('#pointer').css('animation', 'none');
-      }
-    },1000)
+      };
+       //adding sound effect when button is clicked
+      if(remainingTime>0){
+      $('button#submit').on('click', function () {
+        var obj = document.createElement("audio");
+        obj.src = "tickingTimer.wav";
+        obj.play();
+      })
+    }else{
+      
+    }
+    
+    }, 1000)
   })
+
+ 
+  
 })
