@@ -6,7 +6,8 @@ $(document).ready(function () {
   $('button#submit').click(function (event) {
     event.preventDefault();
     //Adding rotation to pointer element
-    $('#pointer').css('animation', 'rotate 2s linear 1s infinite');
+    $('#pointer').css('animation', 'rotate 60s linear 0s infinite');
+    $('#pointer').css('animation-fill-mode', 'forwards');
     //device time--also the start time in miliseconds
     const deviceTime = new Date().getTime();
 
@@ -30,7 +31,6 @@ $(document).ready(function () {
     if (secondInput == ''||secondInput == null || secondInput == NaN){
       timerSeconds = 0;
     };
-    console.log(timerHours)
     //user Time--converted set time to miliseconds--duration in milliseconds
      //user Time--converted set time to miliseconds--duration in milliseconds
      const userTime = (Math.floor(timerHours*3600000))+(Math.floor(timerMinutes*60000))+(Math.floor(timerSeconds*1000));
@@ -73,20 +73,18 @@ $(document).ready(function () {
       var percNum = parseInt(timerS);
       //resizing hour glass content 
       if (percNum <= 50){
-        $('#upperGlass div').css('width', '96%')
+        $('#upperGlass div').css('width', '94%')
       }else if (percNum <= 39){
-        $('#upperGlass div').css('width', '80%')
+        $('#upperGlass div').css('width', '70%')
       }
       else if (percNum <= 20){
-        $('#upperGlass div').css('width', '75%')
-      }else if (percNum <= 8){
-        $('#upperGlass div').css('width', '70%')
-      }      ;
-
+        $('#upperGlass div').css('width', '65%')
+      }else if (percNum <= 13){
+        $('#upperGlass div').css('width', '40%')
+      };
+      console.log(percNum);
       $('#upperGlass div').css('height', percAdd);
       $('#lowerGlass div').css('height', percSub);
-      console.log((percAdd));
-
       
       //reload page with reset button
       $('#reset').click(function(){

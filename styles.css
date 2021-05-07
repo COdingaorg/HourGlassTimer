@@ -12,6 +12,7 @@
   transform: rotate(180deg);
   display: flex;
   justify-content: center;
+  z-index: 0;
 }
 #upperGlass>div{
   width: 100%;
@@ -20,6 +21,7 @@
   padding-top: .5%;
   background-color: red;
   border-radius: inherit;
+  z-index: -2;
   clip-path: polygon(18% 0, 85% 0, 92% 10%, 95% 15%,100% 30%, 100% 100%, 0 100%, 0 30%, 1% 8%, 10% 10%);
 }
 #lowerGlass{
@@ -34,6 +36,7 @@
   transform: rotate(180deg);
   display: flex;
   justify-content: center;
+  z-index: 0;
 }
 #lowerGlass>div{
   width: 100%;
@@ -43,20 +46,18 @@
   background-color: green;
   border-radius: 35% 35% 2% 2%;
   transform: inherit;
+  z-index: -2;
   clip-path: polygon(30% 0, 70% 0, 85% 5%, 95% 15%,100% 30%, 100% 100%, 0 100%, 0 30%, 5% 15%, 14% 6%);
 }
-#holder, #pointer{
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
+#holder{
+  width: 90%;
+  height: 90%;
   border: 3px dotted black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-#holder{
-  margin-top: 38px;
+  border-radius: 50%;
 }
 form#timeInput input,label{
   height: auto;
@@ -75,13 +76,13 @@ form#timeInput input,label{
   display: none;
 }
 #pointer{
-  z-index: 2;
-  padding: 0;
-  align-items:flex-start;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: -340px;
-  border: 0px;
+  width: 98%;
+  height: 55%;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   transform: rotate(90deg);
 }
 #pointer p{
@@ -89,7 +90,15 @@ form#timeInput input,label{
   height: 20px;
   background-color: red;
   clip-path: polygon(0 0, 100% 50%, 0 100%);
-  
+}
+#combo{
+  width: 340px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('clock-face-png-6-Transparent-Images.png');
+  background-size: 100%;
 }
 @keyframes rotate {
   from{
