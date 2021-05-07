@@ -2,7 +2,9 @@ $(document).ready(function () {
   //show time on page
   var dateShow = new Date();
   $('#showTIme').append(dateShow);
-  
+  $('#linkDir').click(function(){
+    $('#linkDir').hide();
+  })
   $('button#submit').click(function (event) {
     event.preventDefault();
     //Adding rotation to pointer element
@@ -97,7 +99,7 @@ $(document).ready(function () {
         clearInterval(x);
 
         $('#display p').first().remove()
-        $('#display').append('<h2>Time Is Up!</h2>');
+        $('#display').append('<h2 id="message">Time Is Up!</h2>');
         $('#pointer').css('animation', 'none');
       }
     },1000)

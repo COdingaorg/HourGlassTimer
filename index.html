@@ -14,7 +14,10 @@
     <h2>Hour Glass Timer</h2>
     <h4 id="showTIme"></h4>
     <hr>
-
+    <div id="display">
+      <h3>Time Remaining: 0<br><a href="#timeInput"><button id="linkDir">Enter time</button> </h3></a>
+      </p>
+    </div>
     <div id="combo">
       <div id="pointer">
         <p>--</p>
@@ -32,9 +35,8 @@
         </div>
       </div>
     </div>
-    <hr>
     <div id="panel">
-      <h2 id="title">Enter Time</h2>
+      <h2 id="title">Your Time</h2>
       <form id="timeInput">
 
         <label for="hours">Hours :
@@ -48,12 +50,7 @@
         </label><br>
         <button type="reset" id="reset">Reset &circlearrowleft;</button>
       </form>
-      <button type="submit" id="submit">&triangleright;</button>
-
-      <div id="display">
-        <h3>Time Remaining: </h3>
-        </p>
-      </div>
+      <a href="#display"></a><button type="submit" id="submit">&triangleright;</button></a>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
