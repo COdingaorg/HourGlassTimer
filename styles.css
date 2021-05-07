@@ -1,36 +1,49 @@
 *{
   box-sizing: border-box;
 }
+:root{
+  --red:#DB3730;
+  --orange:#FD9839;
+  --white: white;
+  --grey:rgb(105, 105, 105);
+  --gold:#FFC357;
+  --darkGold: #D98E2F;
+  --Blue:#88C6F6;
+  --lightblue:#BCDCFD;
+  --black:black;
+}
 #upperGlass{
   width: 80px;
   height: 120px;
-  border-bottom: 6px solid blue;
-  border-left: 6px solid blue;
-  border-right: 6px solid blue;
-  border-radius:35% 35% 2% 2%;
+  border-bottom: 6px solid var(--black);
+  border-left: 6px solid var(--black);
+  border-right: 6px solid var(--black);
+  background-image: linear-gradient( to right, var(--Blue), var(--lightblue), var(--Blue));
+  border-radius:35% 35% 25% 25%;
   margin-bottom: 0;
   transform: rotate(180deg);
   display: flex;
   justify-content: center;
-  z-index: 0;
+  z-index: 1;
 }
 #upperGlass>div{
   width: 100%;
   height: 100%;
-  border: 0px solid rebeccapurple;
+  background-image: linear-gradient(to top, var(--darkGold), var(--gold));
   padding-top: .5%;
   background-color: red;
-  border-radius: inherit;
+  border-radius: 40% 40% 25% 25%;
   z-index: -2;
   clip-path: polygon(18% 0, 85% 0, 92% 10%, 95% 15%,100% 30%, 100% 100%, 0 100%, 0 30%, 1% 8%, 10% 10%);
 }
 #lowerGlass{
   width: 80px;
   height: 120px;
-  border-top: 6px solid blue;
-  border-left: 6px solid blue;
-  border-right: 6px solid blue;
-  border-radius: 2% 2% 35% 35%;
+  border-top: 6px solid var(--black);
+  border-left: 6px solid var(--black);
+  border-right: 6px solid var(--black);
+  background-image: linear-gradient( to right, var(--Blue), var(--lightblue), var(--Blue));
+  border-radius: 25% 25% 35% 35%;
   margin-top: 0;
   padding: 0;
   transform: rotate(180deg);
@@ -41,10 +54,9 @@
 #lowerGlass>div{
   width: 100%;
   height: 0%;
-  border: 0px solid rebeccapurple;
+  background-image: linear-gradient(to top, var(--darkGold), var(--gold));
   padding: .5%;
-  background-color: green;
-  border-radius: 35% 35% 2% 2%;
+  border-radius: 40% 40% 25% 25%;
   transform: inherit;
   z-index: -2;
   clip-path: polygon(30% 0, 70% 0, 85% 5%, 95% 15%,100% 30%, 100% 100%, 0 100%, 0 30%, 5% 15%, 14% 6%);
@@ -52,12 +64,16 @@
 #holder{
   width: 90%;
   height: 90%;
-  border: 3px dotted black;
+  border: 16px solid transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  background-image: linear-gradient(white, white), 
+                    linear-gradient(to bottom, var(--orange), var(--red));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
 form#timeInput input,label{
   height: auto;
@@ -99,6 +115,16 @@ form#timeInput input,label{
   justify-content: center;
   background-image: url('clock-face-png-6-Transparent-Images.png');
   background-size: 100%;
+}
+button{
+  background-color: var(--orange);
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 1.2em;
+  box-shadow: 2px 2px 5px var(--grey);
+  border: 2px solid var(--white);
+  margin: 2%;
 }
 @keyframes rotate {
   from{

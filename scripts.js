@@ -72,15 +72,16 @@ $(document).ready(function () {
       
       var percNum = parseInt(timerS);
       //resizing hour glass content 
-      if (percNum <= 50){
-        $('#upperGlass div').css('width', '94%')
+      if (percNum <= 13){
+        $('#upperGlass div').css('width', '60%')
+      }else if (percNum <= 20){
+        $('#upperGlass div').css('width', '78%')
+      }else if(percNum <= 34){
+        $('#upperGlass div').css('width', '80%')
       }else if (percNum <= 39){
-        $('#upperGlass div').css('width', '70%')
-      }
-      else if (percNum <= 20){
-        $('#upperGlass div').css('width', '65%')
-      }else if (percNum <= 13){
-        $('#upperGlass div').css('width', '40%')
+        $('#upperGlass div').css('width', '84%')
+      } else if (percNum <= 60){
+        $('#upperGlass div').css('width', '94%')
       };
       console.log(percNum);
       $('#upperGlass div').css('height', percAdd);
