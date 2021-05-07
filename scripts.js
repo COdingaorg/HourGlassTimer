@@ -1,6 +1,7 @@
 $(document).ready(function () {
   //show time on page
   var dateShow = new Date();
+  var percNum = 0;
   $('#showTIme').append(dateShow);
   $('#linkDir').click(function () {
     $('#linkDir').hide();
@@ -50,7 +51,7 @@ $(document).ready(function () {
       var lapseTime = currentTime - deviceTime;
 
       //now time remaining will be duration minus lapse time
-      var remainingTime = userTime - lapseTime;
+      remainingTime = userTime - lapseTime;
 
       // Time calculations for days, hours, minutes and seconds
       var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
@@ -73,7 +74,7 @@ $(document).ready(function () {
       var percAdd = timerS + '%';
       var percSub = (100 - timerS) + '%';
 
-      var percNum = parseInt(timerS);
+      percNum = parseInt(timerS);
       //resizing hour glass content 
       if (percNum <= 13) {
         $('#upperGlass div').css('width', '60%')
@@ -105,21 +106,23 @@ $(document).ready(function () {
         $('#display p').first().remove()
         $('#display').append('<h2 id="message">Time Is Up!</h2>');
         $('#pointer').css('animation', 'none');
-      };
-       //adding sound effect when button is clicked
-      if(remainingTime>0){
-      $('button#submit').on('click', function () {
-        var obj = document.createElement("audio");
-        obj.src = "tickingTimer.wav";
-        obj.play();
-      })
-    }else{
-      
-    }
-    
+      }
     }, 1000)
   })
 
- 
-  
+  //adding sound effect when button is clicked
+  $('button#submit').on('click', function () {
+
+    var obj = document.createElement("audio");
+    obj.src = "tickingTimer.wav";
+    obj.play();
+    obj.addEventListener('ended', function () {
+      this.currentTime = 0;
+      this.play();
+    }, false)
+    if (remainingTime <= 0) {
+      obj.stop();
+    };
+
+  });
 })
